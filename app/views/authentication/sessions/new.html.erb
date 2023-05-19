@@ -1,0 +1,29 @@
+<%= form_with(url: sessions_path, class: "form") do |form| %>
+  <% if flash[:notice].present? %>
+    <div class="alert alert-success">
+      <%= flash[:notice] %>
+    </div>
+  <% elsif flash[:alert].present? %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <div class="form-group text-center">
+    <%= form.label :login %>
+    <div class="col-md-6 mx-auto">
+      <%= form.text_field :login, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group text-center">
+    <%= form.label :password %>
+    <div class="col-md-6 mx-auto">
+      <%= form.password_field :password, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group text-center">
+    <%= form.submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
